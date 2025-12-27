@@ -1,0 +1,5 @@
+hardcaml_template_project
+*/_build
+*.install
+*.merlin
+*/_opam
