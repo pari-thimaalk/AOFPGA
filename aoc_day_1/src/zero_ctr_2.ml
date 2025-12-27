@@ -6,7 +6,7 @@ let max_distance = 1000
 let lock_width = 100
 let input_dist_bits = Int.ceil_log2 max_distance
 let dist_bits = Int.ceil_log2 lock_width
-let ctr_bits = Int.ceil_log2 4060
+let ctr_bits = Int.ceil_log2 (max_distance * 5000/ lock_width)
 
 module I = struct
   type 'a t =
@@ -28,14 +28,19 @@ module O = struct
 end
 
 let create scope ({ clock; clear; valid_in; is_left; distance } : _ I.t) : _ O.t =
-  let%hw input_filtered =
-    let rec mod100 depth x =
+
+  let%hw input_filtered, tmp_zero_cross_input =
+    let rec mod100 depth x count =
       if depth <= 0
-      then x
-      else mux2 (x <:. lock_width) x (mod100 (depth - 1) (x -:. lock_width))
+      then (x, count)
+      else
+        let%hw next_val, next_count = mod100 (depth - 1) (x -:. lock_width) (count +:. 1) in
+        (mux2 (x <:. lock_width) x next_val, mux2 (x <:. lock_width) count next_count)
     in
-    uresize ~width:dist_bits (mod100 (max_distance/lock_width) distance)
+    let%hw result, crossings = mod100 (max_distance/lock_width) distance (of_int_trunc ~width:ctr_bits 0) in
+    (uresize ~width:dist_bits result, crossings)
   in
+
   let spec = Reg_spec.create ~clock ~clear () in
 
   let compute_next_pos cur =
@@ -46,10 +51,16 @@ let create scope ({ clock; clear; valid_in; is_left; distance } : _ I.t) : _ O.t
   in
 
   let%hw cur_pos = reg_fb spec ~width:dist_bits ~enable:valid_in ~clear_to:(of_int_trunc ~width:dist_bits 50) ~f:compute_next_pos in
-  let%hw next_pos_d = mux2 valid_in (compute_next_pos cur_pos) cur_pos in
+
+  let%hw incremented = uresize ~width:(dist_bits+1) cur_pos +: uresize ~width:(dist_bits+1) input_filtered in
+  let%hw cross_from_increment = incremented >:. 99 in
+  let%hw cross_from_left = (cur_pos <=: input_filtered) &: (cur_pos <>:. 0) in
+
+  let%hw tmp_zero_cross_pos = uresize ~width:ctr_bits (mux2 is_left cross_from_left cross_from_increment) in
+  let%hw tmp_zero_cross = tmp_zero_cross_input +: tmp_zero_cross_pos in
 
   let%hw zero_cnt = reg_fb spec ~width:ctr_bits ~enable:valid_in ~f:(
-    fun d -> mux2 (next_pos_d ==:. 0) (d +:. 1) d
+    fun d -> (d +: tmp_zero_cross)
   ) in
   { zero_cnt; cur_pos }
 ;;
