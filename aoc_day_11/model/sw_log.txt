@@ -1,0 +1,239 @@
+Graph statistics:
+Total nodes: 596
+'you' has 12 neighbors: ['izp', 'rqj', 'pej', 'shd', 'owq', 'uvx', 'jik', 'efl', 'lhz', 'woi', 'gcu', 'pbh']
+'out' has 0 neighbors: []
+
+Total reachable nodes from 'out': 597
+Starting bottom-up DP from 'out'
+Processing 597 nodes in topological order
+
+Level 0: 1 nodes
+  dp['out'] = 1
+
+Level 1: 22 nodes
+  dp['xih'] = 1
+  dp['vhi'] = 1
+  dp['gxn'] = 1
+  dp['teg'] = 1
+  dp['gig'] = 1
+  ... and 17 more nodes
+
+Level 2: 20 nodes
+  dp['crj'] = 1
+  dp['svi'] = 1
+  dp['sqy'] = 1
+  dp['fnb'] = 2
+  dp['vll'] = 3
+  ... and 15 more nodes
+
+Level 3: 18 nodes
+  dp['yyl'] = 1
+  dp['mgh'] = 2
+  dp['qmi'] = 4
+  dp['rpy'] = 4
+  dp['lmm'] = 2
+  ... and 13 more nodes
+
+Level 4: 20 nodes
+  dp['elv'] = 2
+  dp['rjl'] = 10
+  dp['dff'] = 8
+  dp['bvq'] = 6
+  dp['ccd'] = 6
+  ... and 15 more nodes
+
+Level 5: 21 nodes
+  dp['ccb'] = 10
+  dp['brl'] = 20
+  dp['gkz'] = 26
+  dp['zbl'] = 30
+  dp['dlo'] = 6
+  ... and 16 more nodes
+
+Level 6: 22 nodes
+  dp['sul'] = 66
+  dp['efl'] = 26
+  dp['izp'] = 62
+  dp['wdl'] = 18
+  dp['uvx'] = 69
+  ... and 17 more nodes
+
+Level 7: 3 nodes
+  dp['you'] = 696
+  dp['pup'] = 657
+  dp['gwd'] = 1057
+
+Level 8: 25 nodes
+  dp['rsc'] = 696
+  dp['hwp'] = 696
+  dp['iyc'] = 696
+  dp['vgp'] = 696
+  dp['csw'] = 696
+  ... and 20 more nodes
+
+Level 9: 23 nodes
+  dp['vcr'] = 696
+  dp['yov'] = 696
+  dp['yii'] = 657
+  dp['wsi'] = 2049
+  dp['rnm'] = 2049
+  ... and 18 more nodes
+
+Level 10: 26 nodes
+  dp['wvg'] = 696
+  dp['nfe'] = 2049
+  dp['the'] = 4098
+  dp['uwd'] = 1353
+  dp['xef'] = 3763
+  ... and 21 more nodes
+
+Level 11: 26 nodes
+  dp['rwg'] = 5116
+  dp['ilg'] = 3763
+  dp['xfh'] = 9240
+  dp['bfl'] = 28416
+  dp['nah'] = 26006
+  ... and 21 more nodes
+
+Level 12: 27 nodes
+  dp['noq'] = 9240
+  dp['exi'] = 32179
+  dp['pbg'] = 34885
+  dp['qou'] = 40362
+  dp['gkr'] = 29769
+  ... and 22 more nodes
+
+Level 13: 19 nodes
+  dp['lsf'] = 995225
+  dp['frv'] = 940377
+  dp['pfy'] = 2717615
+  dp['dnw'] = 2717615
+  dp['cms'] = 727165
+  ... and 14 more nodes
+
+Level 14: 24 nodes
+  dp['khk'] = 940377
+  dp['bco'] = 2717615
+  dp['uku'] = 2717615
+  dp['jre'] = 5435230
+  dp['gif'] = 1722390
+  ... and 19 more nodes
+
+Level 15: 23 nodes
+  dp['whm'] = 1722390
+  dp['olb'] = 10651068
+  dp['yqx'] = 17698992
+  dp['hsx'] = 23964903
+  dp['kpj'] = 4330309
+  ... and 18 more nodes
+
+Level 16: 32 nodes
+  dp['kko'] = 1722390
+  dp['kgm'] = 17698992
+  dp['syx'] = 43386285
+  dp['wil'] = 34615971
+  dp['nnl'] = 45137022
+  ... and 27 more nodes
+
+Level 17: 20 nodes
+  dp['dbx'] = 978156710
+  dp['qbd'] = 2883897446
+  dp['usb'] = 2883897446
+  dp['bxs'] = 963146986
+  dp['xup'] = 896222222
+  ... and 15 more nodes
+
+Level 18: 21 nodes
+  dp['zei'] = 2883897446
+  dp['qec'] = 4825201142
+  dp['wma'] = 4825201142
+  dp['lmi'] = 6788102517
+  dp['hrz'] = 6788102517
+  ... and 16 more nodes
+
+Level 19: 12 nodes
+  dp['zmy'] = 19592170732
+  dp['haz'] = 19592170732
+  dp['wsj'] = 13700290437
+  dp['ouq'] = 5814146963
+  dp['mgy'] = 9800286522
+  ... and 7 more nodes
+
+Level 20: 25 nodes
+  dp['fjn'] = 33292461169
+  dp['fbp'] = 33292461169
+  dp['vcb'] = 33292461169
+  dp['uov'] = 292196883185
+  dp['gup'] = 293573130212
+  ... and 20 more nodes
+
+Level 21: 23 nodes
+  dp['blj'] = 172613619024
+  dp['bcc'] = 774141831769
+  dp['klp'] = 722487723933
+  dp['twf'] = 774141831769
+  dp['bdr'] = 1254710533326
+  ... and 18 more nodes
+
+Level 22: 28 nodes
+  dp['vni'] = 172613619024
+  dp['qps'] = 774141831769
+  dp['rsy'] = 774141831769
+  dp['sxu'] = 722487723933
+  dp['njx'] = 774141831769
+  ... and 23 more nodes
+
+Level 23: 19 nodes
+  dp['qyu'] = 2595860916379
+  dp['oqv'] = 2595860916379
+  dp['jch'] = 13823017897446
+  dp['rhn'] = 14597159729215
+  dp['udx'] = 6911508948723
+  ... and 14 more nodes
+
+Level 24: 23 nodes
+  dp['bgp'] = 176593569642880
+  dp['jzw'] = 176593569642880
+  dp['azc'] = 175718339928633
+  dp['yel'] = 128286814318435
+  dp['gxc'] = 261860564650658
+  ... and 18 more nodes
+
+Level 25: 23 nodes
+  dp['nlk'] = 155127324706944
+  dp['yaf'] = 155127324706944
+  dp['lse'] = 155127324706944
+  dp['cbj'] = 496444275269386
+  dp['ili'] = 854918350568934
+  ... and 18 more nodes
+
+Level 26: 26 nodes
+  dp['jay'] = 155127324706944
+  dp['jyz'] = 854918350568934
+  dp['uhm'] = 854918350568934
+  dp['yqn'] = 593057785918276
+  dp['wod'] = 1736677211526377
+  ... and 21 more nodes
+
+Level 27: 14 nodes
+  dp['ysc'] = 2075876889366358
+  dp['vyl'] = 4648198054002102
+  dp['nrd'] = 6227630668099074
+  dp['xeo'] = 4775609638606290
+  dp['tlf'] = 484574086546068
+  ... and 9 more nodes
+
+Level 28: 11 nodes
+  dp['jmk'] = 2075876889366358
+  dp['uuo'] = 12951705611467534
+  dp['fhk'] = 4775609638606290
+  dp['zfx'] = 15651438360707466
+  dp['szb'] = 9423807692608392
+  ... and 6 more nodes
+
+Total levels processed: 29
+Final answer: dp['you'] = 696
+
+============================================================
+Number of paths from 'you' to 'out': 696
+============================================================
