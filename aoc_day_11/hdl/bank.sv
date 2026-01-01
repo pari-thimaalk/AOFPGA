@@ -1,4 +1,7 @@
-module bank(
+module bank
+import types::*;
+import parameters::*;
+(
     input logic clk,
     input logic rst,
 
@@ -42,7 +45,9 @@ module bank(
         router_out_pkt = '0;
 
         valid_in = '0;
-        in_pkt = '0;
+        for(int i = 0; i < NODES_PER_BANK; i = i + 1) begin
+            in_pkt[i] = '0;
+        end
         ready_out = '0;
 
         rr_select_reg_next = rr_select_reg;
