@@ -50,6 +50,7 @@ import parameters::*;
         end
         ready_out = '0;
 
+        recvd = '0;
         rr_select_reg_next = rr_select_reg;
         
         if(router_valid_in) begin
@@ -62,7 +63,13 @@ import parameters::*;
         for(int i = 0; i < NODES_PER_BANK; i = i + 1) begin
             rr_idx = (i + rr_select_reg) % NODES_PER_BANK;
             if(valid_out[rr_idx]) begin
-                if(!recvd[rr_idx]) begin
+                if(out_pkt[rr_idx].ctrl == CTRL_DONE) begin
+                    router_valid_out = 1'b1;
+                    router_out_pkt = out_pkt[rr_idx];
+                    rr_select_reg_next = rr_idx-1;
+                    if(!router_ready_out) break; // we want to keep trying to send this until it succeeds so program can end swiftly
+                end else if(!recvd[out_pkt[rr_idx].addr.z]) begin
+                    ready_out[rr_idx] = 1'b1;
                     valid_in[out_pkt[rr_idx].addr.z] = 1'b1;
                     in_pkt[out_pkt[rr_idx].addr.z] = out_pkt[rr_idx];
                     recvd[out_pkt[rr_idx].addr.z] = 1'b1;

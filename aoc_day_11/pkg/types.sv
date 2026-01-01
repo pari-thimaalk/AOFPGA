@@ -28,7 +28,7 @@ package types;
         CTRL_CONFIG,
         CTRL_PARENTS,
         CTRL_SUM,
-        CTRL_START
+        CTRL_DONE // not used atm
     } ctrl_t;
 
     typedef struct packed {

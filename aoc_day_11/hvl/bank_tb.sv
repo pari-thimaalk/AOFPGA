@@ -226,11 +226,17 @@ module bank_tb;
         router_ready_out <= 1'b1;
 
         prog_load();
+        @(posedge router_ready_out && router_valid_out);
+        $display("Output packet received:");
+        $display("  Ctrl: %0d", router_out_pkt.ctrl);
+        $display("  Data: %0d", router_out_pkt.data.sum_t.value);
+        $finish;
+    end
 
-        repeat (5) @(posedge clk);
-
-        
-
+    initial begin
+        @(posedge clk);
+        repeat (timeout) @(posedge clk);
+        $display("Testbench timed out after %0d cycles", timeout);
         $finish;
     end
 
